@@ -1,0 +1,3 @@
+
+greeting-word: Hallo
+greeting-default: "${greeting-word} Dave"
