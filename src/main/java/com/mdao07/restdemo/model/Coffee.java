@@ -1,11 +1,20 @@
 package com.mdao07.restdemo.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.util.UUID;
 
+@Entity
 public class Coffee {
 
-    private final String id;
+    @Id
+    private String id;
     private String name;
+
+    public Coffee() {
+        id = UUID.randomUUID().toString();
+    }
 
     public Coffee(String id, String name) {
         this.id = id;
@@ -14,6 +23,10 @@ public class Coffee {
 
     public Coffee(String name) {
         this(UUID.randomUUID().toString(), name);
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setName(String name) {
