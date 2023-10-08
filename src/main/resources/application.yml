@@ -1,3 +1,4 @@
 
-greeting-word: Hallo
-greeting-default: "${greeting-word} Dave"
+greeting:
+  word: Hallo
+  name: "${greeting.word} Dave"

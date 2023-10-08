@@ -1,6 +1,6 @@
 package com.mdao07.restdemo.controllers;
 
-import org.springframework.beans.factory.annotation.Value;
+import com.mdao07.restdemo.model.Greeting;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,19 +12,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/greet")
 public class GreetController {
 
-    @Value("${greeting-word: Hello}")
-    private String greeting;
+    private final Greeting greeting;
 
-    @Value("${greeting-default: ${greeting-word} Dan}")
-    private String greetingName;
+    GreetController(Greeting greeting) {
+        this.greeting = greeting;
+    }
 
     @GetMapping("/{name}")
     public ResponseEntity<String> get(@PathVariable String name) {
-        return new ResponseEntity<>(String.format("%s %s", greeting, name), HttpStatus.OK);
+        return new ResponseEntity<>(String.format("%s %s", greeting.getWord(), name), HttpStatus.OK);
     }
 
     @GetMapping
     public ResponseEntity<String> getName() {
-        return new ResponseEntity<>(greetingName, HttpStatus.OK);
+        return new ResponseEntity<>(greeting.getName(), HttpStatus.OK);
     }
 }
