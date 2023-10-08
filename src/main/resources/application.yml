@@ -1,4 +1,10 @@
 
+#debug: true
+
 greeting:
   word: Hallo
   name: "${greeting.word} Dave"
+
+droid:
+  id: "B28"
+  description: "This is simple droid"
