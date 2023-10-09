@@ -9,9 +9,9 @@ management:
         #include: "*"
   endpoint:
     env:
-      show-values: "always"
+      show-values: "never"
     health:
-      show-details: "always"
+      show-details: "never"
 
 greeting:
   word: "Hallo"
