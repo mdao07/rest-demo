@@ -1,8 +1,20 @@
 
 #debug: true
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "env, info, health, loggers"
+        #include: "*"
+  endpoint:
+    env:
+      show-values: "always"
+    health:
+      show-details: "always"
+
 greeting:
-  word: Hallo
+  word: "Hallo"
   name: "${greeting.word} Dave"
 
 droid:
